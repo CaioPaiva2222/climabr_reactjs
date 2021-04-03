@@ -1,0 +1,28 @@
+.searchInput {
+  margin-top: 20px !important;
+  width: 100%;
+}
+
+.searchIcon {
+  margin-top: 25px;
+  color: #808080;
+}
+
+.container {
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+}
+
+.inputContainer {
+  width: 75%;
+  display: flex;
+  align-self: center;
+}
+
+.cityList {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
