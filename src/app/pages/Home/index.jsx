@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import SearchIcon from '@material-ui/icons/Search';
 import { List, ListItem, TextField, Typography } from '@material-ui/core';
 import './styles.scss';
+import { getCity } from '../../../domain/services/searchCityService';
 
 export default function Home() {
   const [cities, setCities] = useState([]);
@@ -12,22 +13,17 @@ export default function Home() {
     <div>
       <Typography>{option.nome}</Typography>
       <Typography style={{ fontSize: 10, color: 'blue' }}>
-        {option.estado}
+        {option.estado.nome}
       </Typography>
     </div>
   );
 
   useEffect(() => {
-    setCities([
-      {
-        nome: 'Lavras',
-        estado: 'Minas Gerais',
-      },
-      {
-        nome: 'Belo Horizonte',
-        estado: 'Minas Gerais',
-      },
-    ].filter(c => c.nome === query));
+    async function getCitiesByQuery() {
+      const teste =  await getCity(query)
+      setCities(teste);
+    }
+    getCitiesByQuery()
   }, [query]);
 
   return (
